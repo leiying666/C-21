@@ -1,0 +1,38 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<windows.h>
+int is_prime(int n)
+{
+	int i = 2;
+	while (i * i <= n)
+	{
+		if (n % i == 0)
+		{
+			return 0;
+		}
+		i++;
+	}
+	return 1;
+}
+void print_two_primes(int count)
+{
+	int n = 2;
+	int j = 1;
+	while (count > 0)
+	{
+		if (is_prime(n) && is_prime(n + 2))
+		{
+			printf("%d:%d %d\n", j,n, n + 2);
+			count--;
+			j++;
+		}
+		n++;
+	}
+}
+int main()
+{
+	print_two_primes(1000);
+	return 0;
+}
